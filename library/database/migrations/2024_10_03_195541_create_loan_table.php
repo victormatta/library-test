@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('loan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('book_id')->constrained()->onDelete('cascade');
+            $table->date('date_loan');
+            $table->date('date_return')->nullable();
             $table->timestamps();
         });
     }
