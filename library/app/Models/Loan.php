@@ -9,7 +9,7 @@ class Loan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'user_id', 'date_loan', 'date_return'];
+    protected $fillable = ['user_id', 'book_id', 'date_loan', 'date_return'];
 
     public function book() {
         return $this->belongsTo(Book::class);
