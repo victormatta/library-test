@@ -75,33 +75,33 @@ Por fim, inicie o servidor local do Laravel:
 php artisan serve
 A aplicação estará acessível no navegador pelo endereço http://localhost:8000.
 
-Uso
+### Uso
 Cadastro de Usuário
 Para adicionar um novo usuário, navegue até a página de cadastro de usuários. No formulário de cadastro, você poderá inserir os dados como nome, email e senha, além de selecionar se o usuário será Aluno ou Professor.
 
-Listagem de Usuários
+### Listagem de Usuários
 A aplicação possui uma tabela que lista todos os usuários cadastrados, mostrando informações como nome, email, tipo de usuário (Aluno ou Professor) e ações disponíveis (editar/excluir).
 
-Edição de Usuário
+### Edição de Usuário
 Você pode editar as informações de um usuário, incluindo a mudança entre os tipos Aluno e Professor, clicando no botão de edição na tabela de listagem de usuários.
 
-Exclusão de Usuário
+### Exclusão de Usuário
 Para excluir um usuário, basta clicar no botão de exclusão. Será solicitado uma confirmação antes de realizar a exclusão.
 
-Estrutura do Projeto
+### Estrutura do Projeto
 Aqui está um resumo das principais partes do projeto:
 
-Models/User.php: Este é o modelo principal do usuário. Ele utiliza as Traits de Laravel como HasApiTokens, HasFactory e Notifiable. O modelo também contém a lógica para relacionamentos, como a associação de múltiplos empréstimos (caso haja essa lógica de loan).
+- Models/User.php: Este é o modelo principal do usuário. Ele utiliza as Traits de Laravel como HasApiTokens, HasFactory e Notifiable. O modelo também contém a lógica para relacionamentos, como a associação de múltiplos empréstimos (caso haja essa lógica de loan).
 
-Views: As visualizações são responsáveis por exibir as telas para o usuário final. Elas incluem o formulário de cadastro, a listagem de usuários e outras páginas relacionadas.
+- Views: As visualizações são responsáveis por exibir as telas para o usuário final. Elas incluem o formulário de cadastro, a listagem de usuários e outras páginas relacionadas.
 
-Controllers: Os controladores, como o UserController, gerenciam as ações do usuário, como criação, edição, exclusão e visualização dos dados.
+- Controllers: Os controladores, como o UserController, gerenciam as ações do usuário, como criação, edição, exclusão e visualização dos dados.
 
-Routes/web.php: Define as rotas da aplicação. Aqui estão as rotas que mapeiam URLs específicas para métodos nos controladores.
+- Routes/web.php: Define as rotas da aplicação. Aqui estão as rotas que mapeiam URLs específicas para métodos nos controladores.
 
-Migrations: Arquivos de migração responsáveis por criar e modificar as tabelas do banco de dados. Isso inclui a tabela de usuários e quaisquer outras tabelas necessárias para funcionalidades adicionais, como empréstimos.
+- Migrations: Arquivos de migração responsáveis por criar e modificar as tabelas do banco de dados. Isso inclui a tabela de usuários e quaisquer outras tabelas necessárias para funcionalidades adicionais, como empréstimos.
 
-Contribuição
+### Contribuição
 Se você deseja contribuir para este projeto, siga os seguintes passos:
 
 Faça um fork do projeto.
