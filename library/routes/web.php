@@ -20,4 +20,4 @@ Route::resource('books', BookController::class);
 Route::resource('users', UserController::class);
 Route::resource('loans', LoanController::class);
 
-Route::post('loans/{loan}/return', [LoanController::class,'return'])->name('loans.return');
+Route::post('loans/{loan}/back', [LoanController::class,'back'])->name('loans.back');
