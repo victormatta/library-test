@@ -1,66 +1,132 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto de Gestão de Usuários com Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este projeto é uma aplicação em Laravel que permite a gestão de usuários, onde cada usuário pode ser classificado como **Aluno** ou **Professor**. A aplicação implementa funcionalidades de CRUD (Create, Read, Update, Delete) e autenticação.
 
-## About Laravel
+## Funcionalidades
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Adicionar novos usuários com a escolha entre **Aluno** e **Professor**.
+- Exibir uma tabela listando todos os usuários com informações como nome, email, tipo (aluno/professor) e ações (editar/excluir).
+- Editar as informações dos usuários, incluindo a troca de status entre aluno e professor.
+- Excluir usuários com confirmação.
+- Autenticação de usuário.
+- Interface clara e responsiva.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP >= 8.0
+- Composer
+- MySQL
+- Node.js (para gerenciamento de assets)
 
-## Learning Laravel
+## Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Passo 1: Clonar o repositório
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Clone o repositório do projeto para o seu ambiente local:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
 
-## Laravel Sponsors
+Passo 2: Instalar o Laravel
+Caso ainda não tenha o Laravel instalado globalmente, instale o Composer (se necessário) e depois o Laravel:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+bash
+Copiar código
+composer global require laravel/installer
+Passo 3: Instalar as dependências
+Dentro do diretório do projeto, execute o comando para instalar as dependências do PHP e do Laravel:
 
-### Premium Partners
+bash
+Copiar código
+composer install
+Passo 4: Configurar o arquivo .env
+Duplique o arquivo .env.example e renomeie-o para .env:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+bash
+Copiar código
+cp .env.example .env
+Abra o arquivo .env e configure as seguintes variáveis de ambiente com os dados do seu banco de dados:
 
-## Contributing
+env
+Copiar código
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nome_do_banco
+DB_USERNAME=usuario
+DB_PASSWORD=senha
+Passo 5: Gerar a chave da aplicação
+Depois de configurar o .env, gere a chave da aplicação:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+bash
+Copiar código
+php artisan key:generate
+Passo 6: Migrar as tabelas do banco de dados
+Agora você pode rodar as migrações para criar as tabelas no banco de dados:
 
-## Code of Conduct
+bash
+Copiar código
+php artisan migrate
+Passo 7: Compilar os assets (opcional)
+Se o projeto incluir arquivos CSS ou JS compilados com Laravel Mix, você precisará rodar o seguinte comando para compilar os assets:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+bash
+Copiar código
+npm install
+npm run dev
+Passo 8: Rodar o servidor local
+Por fim, inicie o servidor local do Laravel:
 
-## Security Vulnerabilities
+bash
+Copiar código
+php artisan serve
+A aplicação estará acessível no navegador pelo endereço http://localhost:8000.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Uso
+Cadastro de Usuário
+Para adicionar um novo usuário, navegue até a página de cadastro de usuários. No formulário de cadastro, você poderá inserir os dados como nome, email e senha, além de selecionar se o usuário será Aluno ou Professor.
 
-## License
+Listagem de Usuários
+A aplicação possui uma tabela que lista todos os usuários cadastrados, mostrando informações como nome, email, tipo de usuário (Aluno ou Professor) e ações disponíveis (editar/excluir).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Edição de Usuário
+Você pode editar as informações de um usuário, incluindo a mudança entre os tipos Aluno e Professor, clicando no botão de edição na tabela de listagem de usuários.
+
+Exclusão de Usuário
+Para excluir um usuário, basta clicar no botão de exclusão. Será solicitado uma confirmação antes de realizar a exclusão.
+
+Estrutura do Projeto
+Aqui está um resumo das principais partes do projeto:
+
+Models/User.php: Este é o modelo principal do usuário. Ele utiliza as Traits de Laravel como HasApiTokens, HasFactory e Notifiable. O modelo também contém a lógica para relacionamentos, como a associação de múltiplos empréstimos (caso haja essa lógica de loan).
+
+Views: As visualizações são responsáveis por exibir as telas para o usuário final. Elas incluem o formulário de cadastro, a listagem de usuários e outras páginas relacionadas.
+
+Controllers: Os controladores, como o UserController, gerenciam as ações do usuário, como criação, edição, exclusão e visualização dos dados.
+
+Routes/web.php: Define as rotas da aplicação. Aqui estão as rotas que mapeiam URLs específicas para métodos nos controladores.
+
+Migrations: Arquivos de migração responsáveis por criar e modificar as tabelas do banco de dados. Isso inclui a tabela de usuários e quaisquer outras tabelas necessárias para funcionalidades adicionais, como empréstimos.
+
+Contribuição
+Se você deseja contribuir para este projeto, siga os seguintes passos:
+
+Faça um fork do projeto.
+Crie uma nova branch (git checkout -b feature-nova-funcionalidade).
+Commite suas alterações (git commit -m 'Adiciona nova funcionalidade').
+Faça o push para a branch (git push origin feature-nova-funcionalidade).
+Abra um Pull Request.
+Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+markdown
+Copiar código
+
+### Explicação:
+
+- **Seções essenciais**: O `README.md` começa com uma descrição do projeto, lista as principais funcionalidades e requisitos.
+- **Instruções de instalação**: Incluí detalhes sobre como instalar o Laravel e configurar o ambiente local.
+- **Como usar**: Essa seção cobre as operações básicas como criar, listar, editar e excluir usuários, além de uma breve explicação sobre o funcionamento da aplicação.
+- **Estrutura do projeto**: Dá uma visão geral das principais partes do projeto como Models, Controllers, Views, etc.
+- **Contribuição e Licença**: Caso você queira aceitar contribuições externas, essas seções são importantes.
