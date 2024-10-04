@@ -11,6 +11,30 @@ class Book extends Model
 
     protected $fillable = ['title', 'author', 'isbn'];
 
+    public function getTitle() {
+        return $this->attributes['title'];
+    }
+
+    public function setTitle($title) {
+        $this->attributes['title'] = $title;
+    }
+
+    public function getAuthor() {
+        return $this->attributes['author'];
+    }
+
+    public function setAuthor($author) {
+        $this->attributes['author'] = $author;
+    }
+
+    public function getIsbn() {
+        return $this->attributes['isbn'];
+    }
+
+    public function setIsbn($isbn) {
+        $this->attributes['isbn'] = $isbn;
+    }
+
     public function loan() {
         return $this->hasMany(Loan::class);
     }
