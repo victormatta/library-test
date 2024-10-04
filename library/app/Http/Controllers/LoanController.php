@@ -23,7 +23,7 @@ class LoanController extends Controller
      */
     public function create()
     {
-        $bookd = Book::all();
+        $books = Book::all();
         $users = User::all();
         return view('loans.create', compact('books', 'users'));
     }
