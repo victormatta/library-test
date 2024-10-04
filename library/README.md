@@ -28,13 +28,14 @@ Clone o repositório do projeto para o seu ambiente local:
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 
-Passo 2: Instalar o Laravel
+### Passo 2: Instalar o Laravel
 Caso ainda não tenha o Laravel instalado globalmente, instale o Composer (se necessário) e depois o Laravel:
 
 bash
 Copiar código
 composer global require laravel/installer
-Passo 3: Instalar as dependências
+
+### Passo 3: Instalar as dependências
 Dentro do diretório do projeto, execute o comando para instalar as dependências do PHP e do Laravel:
 
 bash
