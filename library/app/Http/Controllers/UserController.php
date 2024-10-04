@@ -29,12 +29,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
+        $validateInfo = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password'=> 'required|string|min:4',
+            'type' => 'required|string|in:student, teacher',
         ]);
 
-        User::create($request->all());
+        User::create([
+            'name' => $validateInfo['name'],
+            'email' => $validateInfo['email'],
+            'password' => bcrypt($validateInfo['password']),
+            'type'=> $validateInfo['type'],
+        ]);
         return redirect()->route('users.index')->with('success','User added successfully!');
         
     }
@@ -52,16 +59,35 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
+{
+    $validateInfo = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users,email,' . $id, 
+        'password'=> 'nullable|string|min:4', 
+        'type' => 'required|string|in:student,teacher',
+    ]);
+
+    $user = User::findOrFail($id);
+
+    // Atualiza os campos do usuário
+    $user->name = $validateInfo['name'];
+    $user->email = $validateInfo['email'];
+    if ($request->filled('password')) {
+        $user->password = bcrypt($validateInfo['password']); 
     }
+    $user->type = $validateInfo['type'];
+    $user->save(); 
+
+    return redirect()->route('users.index')->with('success', 'User updated successfully!'); // Redireciona após a atualização
+}
 
     /**
      * Remove the specified resource from storage.
