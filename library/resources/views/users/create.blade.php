@@ -10,6 +10,14 @@
             <input type="text" name="name" class="form-control" required>
         </div>
         <div class="form-group">
+            <label for="type">Type</label>
+            <select name="type" class="form-control" required>
+                <option value="guest" disabled selected>Guest</option>
+                <option value="Student">Student</option>
+                <option value="Teacher">Teacher</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" class="form-control" required>
         </div>
