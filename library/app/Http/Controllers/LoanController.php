@@ -46,6 +46,7 @@ class LoanController extends Controller
 
     public function back(Loan $loan) {
         $loan->date_return = now();
+        $loan->returned = true;
         $loan->save();
 
         return redirect()->route('loans.index')->with('success','Book returned successfully!');

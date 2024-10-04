@@ -11,7 +11,7 @@ class Loan extends Model
 
     protected $table = 'loan';
 
-    protected $fillable = ['user_id', 'book_id', 'date_loan', 'date_return'];
+    protected $fillable = ['user_id', 'book_id', 'date_loan', 'date_return', 'returned'];
 
     public function book() {
         return $this->belongsTo(Book::class);
