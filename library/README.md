@@ -24,7 +24,6 @@ Este projeto é uma aplicação em Laravel que permite a gestão de usuários, o
 
 Clone o repositório do projeto para o seu ambiente local:
 
-```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 
@@ -41,7 +40,8 @@ Dentro do diretório do projeto, execute o comando para instalar as dependência
 bash
 Copiar código
 composer install
-Passo 4: Configurar o arquivo .env
+
+### Passo 4: Configurar o arquivo .env
 Duplique o arquivo .env.example e renomeie-o para .env:
 
 bash
@@ -57,30 +57,21 @@ DB_PORT=3306
 DB_DATABASE=nome_do_banco
 DB_USERNAME=usuario
 DB_PASSWORD=senha
-Passo 5: Gerar a chave da aplicação
+
+### Passo 5: Gerar a chave da aplicação
 Depois de configurar o .env, gere a chave da aplicação:
 
 bash
-Copiar código
 php artisan key:generate
-Passo 6: Migrar as tabelas do banco de dados
+
+### Passo 6: Migrar as tabelas do banco de dados
 Agora você pode rodar as migrações para criar as tabelas no banco de dados:
 
-bash
-Copiar código
 php artisan migrate
-Passo 7: Compilar os assets (opcional)
-Se o projeto incluir arquivos CSS ou JS compilados com Laravel Mix, você precisará rodar o seguinte comando para compilar os assets:
 
-bash
-Copiar código
-npm install
-npm run dev
-Passo 8: Rodar o servidor local
+### Passo 8: Rodar o servidor local
 Por fim, inicie o servidor local do Laravel:
 
-bash
-Copiar código
 php artisan serve
 A aplicação estará acessível no navegador pelo endereço http://localhost:8000.
 
@@ -120,9 +111,6 @@ Faça o push para a branch (git push origin feature-nova-funcionalidade).
 Abra um Pull Request.
 Licença
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
-markdown
-Copiar código
 
 ### Explicação:
 
