@@ -14,7 +14,7 @@ class LoanController extends Controller
      */
     public function index()
     {
-        $loans = Loan::with(['book', 'user'])->get();
+        $loans = Loan::with(['book', 'user'])->paginate(4);
         return view('loans.index', compact('loans'));
     }
 
@@ -50,30 +50,6 @@ class LoanController extends Controller
         $loan->save();
 
         return redirect()->route('loans.index')->with('success','Book returned successfully!');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
     }
 
     /**

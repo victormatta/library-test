@@ -35,5 +35,8 @@
         </tbody>
     </table>
     <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
+
+    {{ $users->links('vendor.pagination.bootstrap-4') }}
+    
 </div>
 @endsection

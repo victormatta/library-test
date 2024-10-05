@@ -32,5 +32,8 @@
         </tbody>
     </table>
     <a href="{{ route('books.create') }}" class="btn btn-primary">Add books</a>
+   
+    {{ $books->links('vendor.pagination.bootstrap-4') }}
+    
 </div>
 @endsection

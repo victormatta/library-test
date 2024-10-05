@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca</title>
+    <title>Library</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        .pagination .page-item .page-link {
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .pagination .active .page-link {
+            background-color: #007bff;
+            color: white;
+        }
+            </style>
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
