@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function() {
+    return view('static.initPage');
+});
+
 Route::resource('books', BookController::class);
 Route::resource('users', UserController::class);
 Route::resource('loans', LoanController::class);
