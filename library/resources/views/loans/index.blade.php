@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <h1>Loans</h1>
-    <a href="{{ route('loans.create') }}" class="btn btn-primary">Create Loan</a>
     <table class="table">
         <thead>
             <tr>
@@ -38,5 +37,6 @@
             @endforeach
         </tbody>
     </table>
+    <a href="{{ route('loans.create') }}" class="btn btn-primary">Create Loan</a>
 </div>
 @endsection
