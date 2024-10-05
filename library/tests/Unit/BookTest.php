@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Models\Book;
+use App\Models\Loan;
 use Tests\TestCase;
 
 class BookTest extends TestCase
@@ -21,8 +22,10 @@ class BookTest extends TestCase
     }
 
     public function test_relationship_with_loans()
-    {
-        $book = Book::factory()->create();
-        $this->assertInstanceOf(\Illuminate\Database\Eloquent\Collection::class, $book->loan);
-    }
+{
+    $book = Book::factory()->create();
+    $loan = Loan::factory()->create(['book_id' => $book->id]);
+
+    $this->assertTrue($book->loans->contains($loan));
+}
 }

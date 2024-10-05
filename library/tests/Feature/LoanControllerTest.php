@@ -15,8 +15,10 @@ class LoanControllerTest extends TestCase
     public function test_index_displays_all_loans()
     {
         Loan::factory()->create();
+        
         $response = $this->get(route('loans.index'));
         $response->assertStatus(200);
+        $response->assertViewHas('loans', Loan::all());
     }
 
     public function test_store_creates_a_new_loan()
@@ -36,11 +38,14 @@ class LoanControllerTest extends TestCase
 
     public function test_back_marks_loan_as_returned()
     {
-        $loan = Loan::factory()->create(['returned' => false]);
+        $loan = Loan::factory()->create(['returned' => false, 'date_return' => null]);
 
-        $response = $this->patch(route('loans.back', $loan));
+        $response = $this->post(route('loans.back', $loan->id));
 
-        $response->assertRedirect(route('loans.index'));
-        $this->assertDatabaseHas('loan', ['id' => $loan->id, 'returned' => true]);
+        $this->assertDatabaseHas('loans', [
+            'id' => $loan->id,
+            'returned' => true,
+            'date_return' => now()->toDateString(),
+        ]);
     }
 }

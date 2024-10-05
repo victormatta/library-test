@@ -39,7 +39,7 @@ class LoanController extends Controller
             'date_loan' => 'required|date',
         ]);
 
-        Loan::create($request->all());
+        Loan::create($request->only('user_id', 'book_id', 'date_loan')); 
         return redirect()->route('loans.index')->with('success','Loan done successfully!');
         
     }
@@ -81,6 +81,9 @@ class LoanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $loan = Loan::find($id);
+        $loan->delete();
+
+        return redirect()->route('loans.index')->with('success','Loan deleted successfully!');
     }
 }
