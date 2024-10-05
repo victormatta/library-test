@@ -35,7 +35,7 @@ class Book extends Model
         $this->attributes['isbn'] = $isbn;
     }
 
-    public function loan() {
+    public function loans() {
         return $this->hasMany(Loan::class);
     }
     

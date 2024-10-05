@@ -3,6 +3,8 @@
 namespace Tests\Unit;
 
 use App\Models\Loan;
+use App\Models\User;
+use App\Models\Book;
 use Tests\TestCase;
 
 class LoanTest extends TestCase
@@ -23,10 +25,12 @@ class LoanTest extends TestCase
     }
 
     public function test_relationship_with_user_and_book()
-    {
-        $loan = Loan::factory()->create();
+{
+    $user = User::factory()->create();
+    $book = Book::factory()->create();
+    $loan = Loan::factory()->create(['user_id' => $user->id, 'book_id' => $book->id]);
 
-        $this->assertInstanceOf(\App\Models\Book::class, $loan->book);
-        $this->assertInstanceOf(\App\Models\User::class, $loan->user);
-    }
+    $this->assertEquals($loan->user->id, $user->id);
+    $this->assertEquals($loan->book->id, $book->id);
+}
 }
