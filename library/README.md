@@ -7,7 +7,7 @@ This project is a Laravel application that allows user management, where each us
 - Add new users with the choice between **Student** and **Teacher**.
 - Display a table listing all users with information such as name, email, type (student/teacher), and actions (edit/delete).
 - Edit user information, including switching status between student and teacher.
-- Delete users with confirmation.
+- Delete users.
 - Clear and responsive interface.
 
 ## Requirements
@@ -82,7 +82,7 @@ The application has a table that lists all registered users, displaying informat
 You can edit a user's information, including switching between the Student and Teacher types, by clicking the edit button in the user listing table.
 
 ### User Deletion
-To delete a user, simply click the delete button. A confirmation prompt will be displayed before proceeding with the deletion.
+To delete a user, simply click the delete button.
 
 ### Project Structure
 Here is an overview of the main parts of the project:
