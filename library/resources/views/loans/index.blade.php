@@ -38,5 +38,8 @@
         </tbody>
     </table>
     <a href="{{ route('loans.create') }}" class="btn btn-primary">Create Loan</a>
+
+    {{ $loans->links('vendor.pagination.bootstrap-4') }}
+    
 </div>
 @endsection
