@@ -35,33 +35,14 @@ class BookController  extends Controller
             'isbn' => 'required|unique:books'
         ]);
 
-        Book::create($request->all());
+        $book = new Book();
+        $book->setTitle($request->input('title'));
+        $book->setAuthor($request->input('author'));
+        $book->setIsbn($request->input('isbn'));
+        $book->save();
+        
         return redirect()->route('books.index')->with('success', 'Book added successfully!');
         
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
     }
 
     /**

@@ -24,6 +24,38 @@ class User extends Authenticatable
         'password'
     ];
 
+    public function getName() {
+        return $this->attributes['name'];
+    }
+
+    public function setName($name) {
+        $this->attributes['name'] = $name;
+    }
+
+    public function getEmail() {
+        return $this->attributes['email'];
+    }
+
+    public function setEmail($email) {
+        $this->attributes['email'] = $email;
+    }
+
+    public function getType() {
+        return $this->attributes['type'];
+    }
+
+    public function setType($type) {
+        $this->attributes['type'] = $type;
+    }
+
+    public function getPassword() {
+        return $this->attributes['password'];
+    }
+
+    public function setPassword($password) {
+        $this->attributes['password'] = $password;
+    }
+
     public function isStudent() {
         return $this->type === 'student';
     }
