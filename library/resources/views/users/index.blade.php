@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <h1>Users</h1>
-    <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
     <table class="table">
         <thead>
             <tr>
@@ -25,13 +24,16 @@
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger"><i class="bi bi-trash text-light" style="font-size: 1.5rem;"></i> <!-- Lixeira -->
+                            </button>
                         </form>
-                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="bi bi-pencil text-light" style="font-size: 1.5rem;"></i> <!-- Lápis -->
+                        </a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
 </div>
 @endsection
