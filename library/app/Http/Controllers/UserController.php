@@ -43,14 +43,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
@@ -73,13 +65,12 @@ class UserController extends Controller
 
     $user = User::findOrFail($id);
 
-    // Atualiza os campos do usuário
-    $user->name = $validateInfo['name'];
-    $user->email = $validateInfo['email'];
+    $user->setName($validateInfo['name']);
+    $user->setEmail($validateInfo['email']);
     if ($request->filled('password')) {
-        $user->password = bcrypt($validateInfo['password']); 
+        $user->setPassword(bcrypt($validateInfo['password'])); 
     }
-    $user->type = $validateInfo['type'];
+    $user->setType($validateInfo['type']);
     $user->save(); 
 
     return redirect()->route('users.index')->with('success', 'User updated successfully!'); // Redireciona após a atualização

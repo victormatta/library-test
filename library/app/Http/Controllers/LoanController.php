@@ -39,14 +39,19 @@ class LoanController extends Controller
             'date_loan' => 'required|date',
         ]);
 
-        Loan::create($request->only('user_id', 'book_id', 'date_loan')); 
+        $loan = new Loan();
+        $loan->setUserId($request->input('user_id'));
+        $loan->setBookId($request->input('book_id'));
+        $loan->setDateLoan($request->input('date_loan'));
+        $loan->save();
+       
         return redirect()->route('loans.index')->with('success','Loan done successfully!');
         
     }
 
     public function back(Loan $loan) {
-        $loan->date_return = now();
-        $loan->returned = true;
+        $loan->setDateReturn(now());
+        $loan->setReturned(true);
         $loan->save();
 
         return redirect()->route('loans.index')->with('success','Book returned successfully!');
